@@ -109,6 +109,20 @@ h5.CreateLabel = function (id, text, x, y) {
 	document.body.appendChild(label);
 }
 
+h5.CreateSlider = function (id, x, y, w, h) {
+	var slider = document.createElement("input");
+	slider.id = id;
+	slider.name = id;
+	slider.type = "range";
+	slider.style.position = "absolute";
+	slider.style.left = x + "px";
+	slider.style.top = y + "px";
+	slider.style.width = w + "px";
+	slider.style.height = h + "px";
+	slider.onchange = EventStacker;
+	document.body.appendChild(slider);
+}
+
 
 
 // Gadget Modification
@@ -196,13 +210,13 @@ h5.AddGadgetItem = function(toId, value) {
 	}
 }
 
-h5.SetGadgetText = function (id, text) {
-	var gadget = document.getElementById(toId);
+h5.SetGadgetValue = function (id, value) {
+	var gadget = document.getElementById(id);
 	if (!gadget) return "";
 	if (gadget.type === "label")
-		gadget.innerHTML = text;
+		gadget.innerHTML = value;
 	else
-		gadget.value = text;
+		gadget.value = value;
 }
 
 
@@ -253,7 +267,7 @@ h5.GadgetHeight = function (id) {
 	return gadget.offsetHeight;
 }
 
-h5.GadgetText = function (id) {
+h5.GadgetValue = function (id) {
 	var gadget = document.getElementById(id);
 	if (!gadget) return "";
 	console.log(gadget);

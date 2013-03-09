@@ -48,6 +48,7 @@ Function CreateCombobox:Void(id:String, x:Int, y:Int, w:Int, h:Int = 20) = "h5.C
 Function CreateListbox:Void(id:String, x:Int, y:Int, w:Int, h:Int = 20) = "h5.CreateListbox"
 Function CreateTextfield:Void(id:String, x:Int, y:Int, w:Int, h:Int = 16, type:String = "text") = "h5.CreateTextfield"
 Function CreateLabel:Void(id:String, text:String, x:Int, y:Int) = "h5.CreateLabel"
+Function CreateSlider:Void(id:String, x:Int, y:Int, w:Int, h:Int) = "h5.CreateSlider"
 
 'Gadget Modification
 Function SetGadgetPosition:Void(id:String, x:Int, y:Int) = "h5.SetGadgetPosition"
@@ -57,7 +58,7 @@ Function RenameGadget:Void(id:String, text:String) = "h5.RenameGadget"
 Function RemoveGadget:Void(id:String) = "h5.RemoveGadget"
 Function RemoveGadgetItem:Void(fromId:String, value:String) = "h5.RemoveGadgetItem"
 Function AddGadgetItem:Void(toId:String, value:String) = "h5.AddGadgetItem"
-Function SetGadgetText:Void(id:String, text:String) = "h5.SetGadgetText"
+Function SetGadgetValue:Void(id:String, value:String) = "h5.SetGadgetValue"
 
 'Enable & Disable
 Function DisableGadget:Void(id:String) = "h5.DisableGadget"
@@ -69,7 +70,7 @@ Function GadgetX:Int(id:String) = "h5.GadgetX"
 Function GadgetY:Int(id:String) = "h5.GadgetY"
 Function GadgetWidth:Int(id:String) = "h5.GadgetWidth"
 Function GadgetHeight:Int(id:String) = "h5.GadgetHeight"
-Function GadgetText:String(id:String) = "h5.GadgetText"
+Function GadgetValue:String(id:String) = "h5.GadgetValue"
 Function ButtonStatus:Bool(id:String) = "h5.ButtonStatus"
 Function SelectedGadgetItem:String(id:String) = "h5.SelectedGadgetItem"
 Function SelectedGadgetItems:String[](id:String) = "h5.SelectedGadgetItems"

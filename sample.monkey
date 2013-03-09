@@ -45,7 +45,12 @@ Class H5App Extends App Implements h5GuiHandler
 		
 		'Label
 		CreateLabel("label1", "Some text", 200, 24)
-
+		
+		'Slider
+		CreateSlider("slider1", 200, 52, 100, 20)
+		
+		SetGadgetValue("slider1", 90)
+		
 		Return 0
 	End
 	
@@ -77,11 +82,11 @@ Class H5App Extends App Implements h5GuiHandler
 				End
 				
 			Case "keydown"
-				Print "Keydown: " + event.id + ": " + GadgetText(event.id)
+				Print "Keydown: " + event.id + ": " + GadgetValue(event.id)
 				
 			Case "change"
 				If event.id = "text2"
-					Print "Numberfield: " + GadgetText("text2")
+					Print "Numberfield: " + GadgetValue("text2")
 				ElseIf event.id = "combo1"
 					Print "Combobox: " + SelectedGadgetItem("combo1")
 				ElseIf event.id = "list1"
@@ -90,6 +95,8 @@ Class H5App Extends App Implements h5GuiHandler
 						Print items[i]
 					Next
 					Print ""
+				Else
+					Print event.id + " changed to " + GadgetValue(event.id)
 				End
 		End
 	End
