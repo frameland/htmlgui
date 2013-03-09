@@ -57,8 +57,12 @@ Function RenameGadget:Void(id:String, text:String) = "h5.RenameGadget"
 Function RemoveGadget:Void(id:String) = "h5.RemoveGadget"
 Function RemoveGadgetItem:Void(fromId:String, value:String) = "h5.RemoveGadgetItem"
 Function AddGadgetItem:Void(toId:String, value:String) = "h5.AddGadgetItem"
-	
 
+'Enable & Disable
+Function DisableGadget:Void(id:String) = "h5.DisableGadget"
+Function EnableGadget:Void(id:String) = "h5.EnableGadget"
+Function GadgetIsEnabled:Bool(id:String) = "h5.GadgetIsEnabled"	
+	
 'Getter
 Function GadgetText:String(id:String) = "h5.GadgetText"
 Function ButtonStatus:Bool(id:String) = "h5.ButtonStatus"

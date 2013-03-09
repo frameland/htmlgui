@@ -185,6 +185,26 @@ h5.AddGadgetItem = function(toId, value) {
 }
 
 
+// Enable & Disable
+h5.DisableGadget = function(id) {
+	var gadget = document.getElementById(id);
+	if (!gadget) return;
+	gadget.disabled = true;
+}
+
+h5.EnableGadget = function(id) {
+	var gadget = document.getElementById(id);
+	if (!gadget) return;
+	gadget.disabled = false;
+}
+
+h5.GadgetIsEnabled = function(id) {
+	var gadget = document.getElementById(id);
+	if (!gadget) return false;
+	return !gadget.disabled;
+}
+
+
 
 // Getters
 h5.GadgetText = function (id) {
