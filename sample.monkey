@@ -36,7 +36,7 @@ Class H5App Extends App Implements h5GuiHandler
 		AddGadgetItem("combo1", "Option 1")
 		AddGadgetItem("combo1", "Option 2")
 		AddGadgetItem("combo1", "Option 3")
-		
+
 		'Listbox
 		CreateListbox("list1", 24, 330, 100, 70)
 		AddGadgetItem("list1", "Item 1")

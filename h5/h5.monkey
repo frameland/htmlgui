@@ -64,6 +64,10 @@ Function EnableGadget:Void(id:String) = "h5.EnableGadget"
 Function GadgetIsEnabled:Bool(id:String) = "h5.GadgetIsEnabled"	
 	
 'Getter
+Function GadgetX:Int(id:String) = "h5.GadgetX"
+Function GadgetY:Int(id:String) = "h5.GadgetY"
+Function GadgetWidth:Int(id:String) = "h5.GadgetWidth"
+Function GadgetHeight:Int(id:String) = "h5.GadgetHeight"
 Function GadgetText:String(id:String) = "h5.GadgetText"
 Function ButtonStatus:Bool(id:String) = "h5.ButtonStatus"
 Function SelectedGadgetItem:String(id:String) = "h5.SelectedGadgetItem"

@@ -9,7 +9,7 @@ function h5Event() {
 
 // Polling
 function EventStacker(event) {
-	console.log(event);
+	//console.log(event);
 	var ev = new h5Event;
 	ev.id = event.target.id;
 	ev.type = event.type;
@@ -207,6 +207,30 @@ h5.GadgetIsEnabled = function(id) {
 
 
 // Getters
+h5.GadgetX = function (id) {
+	var gadget = document.getElementById(id);
+	if (!gadget) return 0;
+	return gadget.offsetLeft;
+}
+
+h5.GadgetY = function (id) {
+	var gadget = document.getElementById(id);
+	if (!gadget) return 0;
+	return gadget.offsetTop;
+}
+
+h5.GadgetWidth = function (id) {
+	var gadget = document.getElementById(id);
+	if (!gadget) return 0;
+	return gadget.offsetWidth;
+}
+
+h5.GadgetHeight = function (id) {
+	var gadget = document.getElementById(id);
+	if (!gadget) return 0;
+	return gadget.offsetHeight;
+}
+
 h5.GadgetText = function (id) {
 	var gadget = document.getElementById(id);
 	if (!gadget) return "";
@@ -243,7 +267,7 @@ h5.SelectedGadgetItems = function (id) {
 
 
 
-// Other
+// Dialogs
 function Notify(text) {
 	alert(text);
 }
