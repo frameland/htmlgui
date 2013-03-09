@@ -247,6 +247,19 @@ h5.ButtonStatus = function (id) {
 h5.SelectedGadgetItem = function (id) {
     var parent = document.getElementById(id);
 	if (!parent) return "";
+
+	// radio buttons
+	if (parent.type === "radio") {
+		var radios = document.getElementsByName(id);
+		for (i = 0; i < radios.length; i++) {
+		    if (radios[i].checked) {
+		        return radios[i].value;
+		    }
+		}
+		return "";
+	}
+	
+	// listbox/combobox
 	var selected = parent.selectedIndex;
 	if (selected === -1) return "";
     return parent.options[selected].text;
