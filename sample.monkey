@@ -37,6 +37,12 @@ Class H5App Extends App Implements h5GuiHandler
 		AddGadgetItem("combo1", "Option 2")
 		AddGadgetItem("combo1", "Option 3")
 		
+		'Listbox
+		CreateListbox("list1", 24, 330, 100, 70)
+		AddGadgetItem("list1", "Item 1")
+		AddGadgetItem("list1", "Item 2")
+		AddGadgetItem("list1", "Item 3")
+		
 		Return 0
 	End
 	
@@ -59,7 +65,6 @@ Class H5App Extends App Implements h5GuiHandler
 				ElseIf event.id.StartsWith("buttonCheck")
 					Print event.id + ": " + Int(ButtonStatus(event.id))
 				ElseIf event.id.StartsWith("button")
-					'MoveGadget("buttonCheck1", 100, 20)
 					Print "Clicked: " + event.id
 					If event.id = "button1"
 						AddGadgetItem("combo1", "Option 1")
@@ -67,10 +72,22 @@ Class H5App Extends App Implements h5GuiHandler
 						RemoveGadgetItem("combo1", "Option 1")
 					End
 				End
+				
 			Case "keydown"
 				Print "Keydown: " + event.id + ": " + GadgetText(event.id)
+				
 			Case "change"
-				Print "changed: " + event.id + " -> " + GadgetText(event.id)
+				If event.id = "text2"
+					Print "Numberfield: " + GadgetText("text2")
+				ElseIf event.id = "combo1"
+					Print "Combobox: " + SelectedGadgetItem("combo1")
+				ElseIf event.id = "list1"
+					Local items:= SelectedGadgetItems("list1")
+					For Local i:Int = 0 Until items.Length
+						Print items[i]
+					Next
+					Print ""
+				End
 		End
 	End
 	

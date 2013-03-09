@@ -45,6 +45,7 @@ Extern
 'Creation
 Function CreateButton:Void(id:String, text:String, x:Int, y:Int, w:Int, h:Int = 20, type:String = "button") = "h5.CreateButton"
 Function CreateCombobox:Void(id:String, x:Int, y:Int, w:Int, h:Int = 20) = "h5.CreateCombobox"
+Function CreateListbox:Void(id:String, x:Int, y:Int, w:Int, h:Int = 20) = "h5.CreateListbox"
 Function CreateTextfield:Void(id:String, x:Int, y:Int, w:Int, h:Int = 16, type:String = "text") = "h5.CreateTextfield"
 
 
@@ -60,8 +61,9 @@ Function AddGadgetItem:Void(toId:String, value:String) = "h5.AddGadgetItem"
 
 'Getter
 Function GadgetText:String(id:String) = "h5.GadgetText"
-Function SelectedGadgetItem:String(id:String) = "h5.SelectedGadgetItem"
 Function ButtonStatus:Bool(id:String) = "h5.ButtonStatus"
+Function SelectedGadgetItem:String(id:String) = "h5.SelectedGadgetItem"
+Function SelectedGadgetItems:String[](id:String) = "h5.SelectedGadgetItems"
 
 			
 'Other

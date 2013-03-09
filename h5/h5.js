@@ -83,6 +83,20 @@ h5.CreateTextfield = function (id, x, y, w, h, type) {
 	document.body.appendChild(button);
 }
 
+h5.CreateListbox = function (id, x, y, w, h) {
+	var listbox = document.createElement("select");
+	listbox.multiple = "multiple";
+	listbox.id = id;
+	listbox.name = id;
+	listbox.style.position = "absolute";
+	listbox.style.left = x + "px";
+	listbox.style.top = y + "px";
+	listbox.style.width = w + "px";
+	listbox.style.height = h + "px";
+	listbox.onchange = EventStacker;
+	document.body.appendChild(listbox);
+}
+
 
 
 // Gadget Modification
@@ -187,14 +201,24 @@ h5.ButtonStatus = function (id) {
 }
 
 h5.SelectedGadgetItem = function (id) {
-    var parent = document.getElementsByName(id);
-	if (!parent) return;
-    for (i = 0; i < parent.length; i++) {
-        if (parent[i].checked) {
-            return parent[i].value;
-        }
-    }
-    return "";
+    var parent = document.getElementById(id);
+	if (!parent) return "";
+	var selected = parent.selectedIndex;
+	if (selected === -1) return "";
+    return parent.options[selected].text;
+}
+
+h5.SelectedGadgetItems = function (id) {
+    var parent = document.getElementById(id);
+	if (!parent) return "";
+	var selected = parent.selectedOptions;
+	if (selected.length === 0) return [""];
+	var multipleReturn = new Array(selected.length);
+	for (var i=0; i < selected.length; i++) {
+		multipleReturn[i] = selected[i].text;
+	};
+	console.log(multipleReturn);
+	return multipleReturn;
 }
 
 
