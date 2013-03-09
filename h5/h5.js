@@ -215,10 +215,25 @@ h5.SetGadgetValue = function (id, value) {
 	if (!gadget) return "";
 	if (gadget.type === "label")
 		gadget.innerHTML = value;
-	else
+	else if (gadget.type === "radio") {
+		var selectedRadio = h5.GadgetValue(id);
+		if (selectedRadio != "") {
+			var allRadios = document.getElementsByName(id);
+			for (var i=0; i < allRadios.length; i++) {
+				if (allRadios[i].value === value) {
+					allRadios[i].checked = true;
+					return;
+				}
+			}
+		}
+	}
+	else if (gadget.type === "checkbox") {
+		gadget.checked = parseInt(value);
+	}
+	else {
 		gadget.value = value;
+	}
 }
-
 
 
 // Enable & Disable

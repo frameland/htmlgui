@@ -12,6 +12,8 @@ End
 Class H5App Extends App Implements h5GuiHandler
 	
 	Method OnCreate:Int()
+		
+		'monkey stuff
 		SetUpdateRate(30)
 		
 		'Buttons
@@ -21,41 +23,50 @@ Class H5App Extends App Implements h5GuiHandler
 		'Checkboxes
 		CreateButton("buttonCheck1", "Checkbox 1", 24, 80, 200, 24, "checkbox")
 		CreateButton("buttonCheck2", "Checkbox 2", 24, 110, 200, 24, "checkbox")
+		SetGadgetValue("buttonCheck1", 1)
 		
 		'Radio Buttons
 		CreateButton("buttonRadio", "Radio 1", 24, 140, 200, 24, "radio")
 		CreateButton("buttonRadio", "Radio 2", 24, 168, 200, 24, "radio")
 		CreateButton("buttonRadio", "Radio 3", 24, 192, 200, 24, "radio")
-				
+		SetGadgetValue("buttonRadio", "Radio 2")
+		
 		'Textfield
 		CreateTextfield("text1", 24, 230, 100, 14)
 		CreateTextfield("text2", 24, 254, 100, 14, "number")
+		SetGadgetValue("text2", "30")
 		
 		'Combobox
 		CreateCombobox("combo1", 24, 290, 100, 24)
 		AddGadgetItem("combo1", "Option 1")
 		AddGadgetItem("combo1", "Option 2")
 		AddGadgetItem("combo1", "Option 3")
-
+		SetGadgetValue("combo1", "Option 2") 'Default to Option 2
+		
 		'Listbox
 		CreateListbox("list1", 24, 330, 100, 70)
 		AddGadgetItem("list1", "Item 1")
 		AddGadgetItem("list1", "Item 2")
 		AddGadgetItem("list1", "Item 3")
+		SetGadgetValue("list1", "Item 3") 'Default to Item 3
 		
 		'Label
 		CreateLabel("label1", "Some text", 200, 24)
 		
 		'Slider
 		CreateSlider("slider1", 200, 52, 100, 20)
-		
-		SetGadgetValue("slider1", 90)
+		SetGadgetValue("slider1", 80)
+		CreateLabel("labelSlider", "80", 308, 55)
 		
 		Return 0
 	End
 	
 	Method OnRender:Int()
 		Cls(240, 240, 240)
+		Local size:Int = Int(GadgetValue("labelSlider"))/3
+		For Local i:Int = 0 Until 10
+			DrawCircle(300 + (i Mod 4) * 50, 250 + ((i*50) Mod 300), size)
+		Next
 		Return 0
 	End
 	
@@ -95,6 +106,8 @@ Class H5App Extends App Implements h5GuiHandler
 						Print items[i]
 					Next
 					Print ""
+				ElseIf event.id = "slider1"
+					SetGadgetValue("labelSlider", GadgetValue("slider1"))
 				Else
 					Print event.id + " changed to " + GadgetValue(event.id)
 				End
