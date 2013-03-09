@@ -97,6 +97,18 @@ h5.CreateListbox = function (id, x, y, w, h) {
 	document.body.appendChild(listbox);
 }
 
+h5.CreateLabel = function (id, text, x, y) {
+	var label = document.createElement("label");
+	label.id = id;
+	label.name = id;
+	label.type = "label";
+	label.innerHTML = text;
+	label.style.position = "absolute";
+	label.style.left = x + "px";
+	label.style.top = y + "px";
+	document.body.appendChild(label);
+}
+
 
 
 // Gadget Modification
@@ -184,6 +196,16 @@ h5.AddGadgetItem = function(toId, value) {
 	}
 }
 
+h5.SetGadgetText = function (id, text) {
+	var gadget = document.getElementById(toId);
+	if (!gadget) return "";
+	if (gadget.type === "label")
+		gadget.innerHTML = text;
+	else
+		gadget.value = text;
+}
+
+
 
 // Enable & Disable
 h5.DisableGadget = function(id) {
@@ -234,7 +256,11 @@ h5.GadgetHeight = function (id) {
 h5.GadgetText = function (id) {
 	var gadget = document.getElementById(id);
 	if (!gadget) return "";
-	return gadget.value;
+	console.log(gadget);
+	if (gadget.type === "label")
+		return gadget.textContent;
+	else
+		return gadget.value;
 }
 
 h5.ButtonStatus = function (id) {

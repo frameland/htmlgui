@@ -43,6 +43,9 @@ Class H5App Extends App Implements h5GuiHandler
 		AddGadgetItem("list1", "Item 2")
 		AddGadgetItem("list1", "Item 3")
 		
+		'Label
+		CreateLabel("label1", "Some text", 200, 24)
+
 		Return 0
 	End
 	
