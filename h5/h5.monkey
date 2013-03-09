@@ -65,6 +65,11 @@ Function DisableGadget:Void(id:String) = "h5.DisableGadget"
 Function EnableGadget:Void(id:String) = "h5.EnableGadget"
 Function GadgetIsEnabled:Bool(id:String) = "h5.GadgetIsEnabled"	
 	
+'Visibility
+Function HideGadget:Void(id:String) = "h5.HideGadget"
+Function ShowGadget:Void(id:String) = "h5.ShowGadget"
+Function GadgetIsVisible:Bool(id:String) = "h5.GadgetIsVisible"
+
 'Getter
 Function GadgetX:Int(id:String) = "h5.GadgetX"
 Function GadgetY:Int(id:String) = "h5.GadgetY"

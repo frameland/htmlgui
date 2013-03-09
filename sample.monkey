@@ -23,7 +23,7 @@ Class H5App Extends App Implements h5GuiHandler
 		'Checkboxes
 		CreateButton("buttonCheck1", "Checkbox 1", 24, 80, 200, 24, "checkbox")
 		CreateButton("buttonCheck2", "Checkbox 2", 24, 110, 200, 24, "checkbox")
-		SetGadgetValue("buttonCheck1", 1)
+		SetGadgetValue("buttonCheck1", 1) 'Check the first checkbox
 		
 		'Radio Buttons
 		CreateButton("buttonRadio", "Radio 1", 24, 140, 200, 24, "radio")
@@ -53,7 +53,7 @@ Class H5App Extends App Implements h5GuiHandler
 		'Label
 		CreateLabel("label1", "Some text", 200, 24)
 		
-		'Slider
+		'Slider with label
 		CreateSlider("slider1", 200, 52, 100, 20)
 		SetGadgetValue("slider1", 80)
 		CreateLabel("labelSlider", "80", 308, 55)

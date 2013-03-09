@@ -256,6 +256,29 @@ h5.GadgetIsEnabled = function(id) {
 }
 
 
+// Visibility
+h5.HideGadget = function(id) {
+	var gadget = document.getElementById(id);
+	if (!gadget) return false;
+	gadget.style.display = "none";
+}
+
+h5.ShowGadget = function(id) {
+	var gadget = document.getElementById(id);
+	if (!gadget) return false;
+	gadget.style.display = "block";
+}
+
+h5.GadgetIsVisible = function(id) {
+	var gadget = document.getElementById(id);
+	if (!gadget) return false;
+	if (gadget.style.display === "none")
+		return false;
+	else
+		return true;
+}
+
+
 
 // Getters
 h5.GadgetX = function (id) {
